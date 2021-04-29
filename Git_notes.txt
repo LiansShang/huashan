@@ -1,0 +1,57 @@
+协同修改/权限控制/历史记录/分支管理
+数据备份
+版本管理：文件系统快照。
+
+集中式版本控制：服务器总筹/单点故障
+分布式版本控制：分布式/本地库/远程库
+
+Git优点：	大部分本地完成不需联网/完整性保证 (hash)/尽可能添加数据/分支操作快照管理(指针)
+
+Git结构：		工作区 		##写代码		##git add添加代码到暂存区
+		暂存区		##临时存取	##git commit提交到本地库
+		本地库		##历史版本 
+
+代码托管中心	Gitlab		##局域网环境下
+托管远程库	GitHub/码云	##外网环境下
+
+本地库初始化	git init		##.git文件
+设置签名		
+项目仓库级别	git config user.name  lianshang _pro 			##仅本地生效
+		git config user.email lianshang_pro@163.com
+系统用户级别	git config --global user.name  lianshang _glb		##登陆操作系统范围
+		git config --global user.email lianshang_pro@163.com
+
+状态查看		git  status			##查看工作区、暂存区状态
+添加操作		git add [file name]		##将工作区的“新建/修改”添加到暂存区
+提交操作		git commit -m “commit message”[file name]
+
+查看历史记录	git log/git log --pretty=oneline /git log --oneline/git reflog  	##HEAD@{number步数}指针管理历史版本
+前进后退历史版本	
+基于索引值操作 	git reset --hard [局部索引值]		##git reflog 显示索引值
+只能后退
+使用^符号		git reset --hard HEAD^		##一个^符号代表后退一步
+使用~符号		git reset --hard HEAD~n		##后退n步	
+reset三个参数	--soft				##仅在本地库移动HEAD
+		--mixed				##移动本地库HEAD以及重置暂存区
+		--hard				##移动本地库HEAD以及重置暂存区和工作区
+
+git帮助指令	git help 指令
+
+删除文件找回			git reset --hard [指针位置]
+提交到暂存区删除工作区文件找回	rm test.txt-->git commit -m "xxx" test.txt -->git reset --hard [指针位置]		##git status/ls -la
+提交到本地库删除工作区文件找回	rm test.txt-->git status-->git reset --hard  HEAD（指向deleted files）	
+
+文件差异比较	git diff [文件名]   			##将工作区和暂存区进行比较
+		git diff [本地库中的历史版本] [文件名]	##将工作区的文件和本地库历史记录进行比较
+		git diff  				##不带文件名 比较多个文件
+
+分支的操作	git branch  -v			##查看分支状态
+		git branch [分支名]			## 创建分支
+		git checkout [分支名]		##切换分支
+		git merge [待合并分支名]		##合并分支，前提要切换到合并之后的分支上
+合并出现冲突解决	git merge [ 待合并分支]-->出现冲突-->vim test.txt 删除特殊符号-->git add [文件名]-->git commit -m "日志信息" 
+
+新建远程库别名	git remote -v			##查看远程库地址别名
+		git remote add [远程库链接别名]  [l链接]	##复制远程库链接到本地
+推送		git push [远程库链接别名] [本地分支名]	##推送本库地分支到远程库
+克隆		git clone [远程库链接]		##远程库克隆到本地，远程库下载到本地，创建远程库地址别名，创建初始化本地库
