@@ -58,5 +58,5 @@ git帮助指令	git help 指令
 抓取		git fecth [远程库链接别名] [远程库抓取分支]   	##抓取远程库的内容来查看
 		git checkout [远程库链接别名]/[远程库分支]	##切换到远程库分支可以查看抓取下来的内容
 		git merge [别名]/[远程库分支]			##把远程库拉取下来的内容，合并到本地库
-pull=fetch+merge	
+拉取		git pull [远程库链接别名] [远程分支名]		##pull=fetch+merge	
 
