@@ -61,3 +61,9 @@ git帮助指令	git help 指令
 拉取		git pull [远程库链接别名] [远程分支名]		##pull=fetch+merge	
 协同开发冲突	先拿到远程开发然后开发提交，不然直接提交本地库的内容会和远程库冲突
 
+跨团队协作	##先fork别人远程库
+		##其次克隆fork的库
+		##本地修改之后上传到fork来的远程库
+		##pull request-->new pull request--->create pull request--->发消息给远程库所属者
+		##远程库所有者打开查看pull request，查看commit，files changed 审核代码---->merge pull request合并pull request
+		##远程库所有者执行 git pull 拉取到本地查看即可				
