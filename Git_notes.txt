@@ -67,3 +67,6 @@ git帮助指令	git help 指令
 		##pull request-->new pull request--->create pull request--->发消息给远程库所属者
 		##远程库所有者打开查看pull request，查看commit，files changed 审核代码---->merge pull request合并pull request
 		##远程库所有者执行 git pull 拉取到本地查看即可				
+
+配置SSH访问GitHub		cd~ ---->rm -r .ssh/  ---->ssh-keygen -t rsa -C [登录邮箱]		##先进入家目录删除相关.sh文件然后创建SSH登录
+			远程库端建立SSH and GPG keys 利用.ssh/id_rsa.pub的内容粘到key下 ，远程端配置完成
