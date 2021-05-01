@@ -70,3 +70,5 @@ git帮助指令	git help 指令
 
 配置SSH访问GitHub		cd~ ---->rm -r .ssh/  ---->ssh-keygen -t rsa -C [登录邮箱]		##先进入家目录删除相关.sh文件然后创建SSH登录
 			远程库端建立SSH and GPG keys 利用.ssh/id_rsa.pub的内容粘到key下 ，远程端配置完成
+			git remote add [origin_ssh远程库别名] [远程库链接]			##建立远程库链接别名
+			git push origin_ssh master					##利用ssh推送
